@@ -43,12 +43,16 @@ namespace nhibernate_demo.Controllers
         // POST: /ChocolatBar/Create
 
         [HttpPost]
-        public ActionResult Create(ChocolateBar chocolateBar, int chocolatierID)
+        public ActionResult Create(ChocolateBar chocolateBar, int chocolatierID, string features)
         {
             try
             {
                 ChocolateBarRepository repo = new ChocolateBarRepository();
-
+                chocolateBar.Features.Clear();
+                foreach(string feature in features.Split(','))
+                {
+                    chocolateBar.Features.Add(new Feature { Name = feature });
+                }
                 repo.Save(chocolateBar, chocolatierID);
 
                 return RedirectToAction("Index");
@@ -76,13 +80,18 @@ namespace nhibernate_demo.Controllers
         // POST: /ChocolatBar/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(ChocolateBar chocolateBar, int chocolatierID)
+        public ActionResult Edit(ChocolateBar chocolateBar, int chocolatierID, string features)
         {
             try
             {
                 ChocolateBarRepository repo = new ChocolateBarRepository();
+
+                chocolateBar.Features.Clear();
+                foreach (string feature in features.Split(','))
+                {
+                    chocolateBar.Features.Add(new Feature { Name = feature });
+                }
                 repo.Save(chocolateBar, chocolatierID);
- 
                 return RedirectToAction("Index");
             }
             catch

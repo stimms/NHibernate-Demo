@@ -21,7 +21,7 @@ namespace nhibernate_demo.Repositories
             if (_session == null)
             {
                 _session = Fluently.Configure()
-                                   .Mappings(x => x.FluentMappings.AddFromAssemblyOf<ChocolateBarMap>())
+                                   .Mappings(x => x.FluentMappings.AddFromAssemblyOf<ChocolateBarMap>().Conventions.AddFromAssemblyOf<CascadeConvention>())
                                    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
                                    .ExposeConfiguration(UpdateSchema)
                                    .BuildSessionFactory();

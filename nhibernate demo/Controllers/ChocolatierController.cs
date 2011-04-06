@@ -59,19 +59,21 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var repository = new ChocolatierRepository();
+
+            return View(repository.GetByID(id));
         }
 
         //
         // POST: /Chocolatier/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Chocolatier chocolatier)
         {
             try
             {
-                // TODO: Add update logic here
- 
+                var repository = new ChocolatierRepository();
+                repository.Save(chocolatier);
                 return RedirectToAction("Index");
             }
             catch
@@ -85,25 +87,9 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        //
-        // POST: /Chocolatier/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var repository = new ChocolatierRepository();
+            repository.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

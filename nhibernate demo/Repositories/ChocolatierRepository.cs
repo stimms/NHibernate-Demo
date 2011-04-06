@@ -20,6 +20,26 @@ namespace nhibernate_demo.Repositories
             return _session.Load<Chocolatier>(id);
         }
 
+        public void Delete(int id)
+        {
+            using (var transaction = _session.BeginTransaction())
+            {
+                try
+                {
+                    _session.Delete(_session.Load<Chocolatier>(id));
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    if (transaction.IsActive)
+                    {
+                        transaction.Rollback();
+                    }
+                    throw ex;
+                }
+            }
+            
+        }
         public void Save(Chocolatier chocolatier)
         {
             using (var transaction = _session.BeginTransaction())
