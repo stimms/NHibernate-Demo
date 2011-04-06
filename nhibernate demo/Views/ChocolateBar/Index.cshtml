@@ -1,0 +1,46 @@
+﻿@model IEnumerable<nhibernate_demo.Models.ChocolateBar>
+
+@{
+    ViewBag.Title = "Chocolate Bars";
+}
+
+<h2>Index1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Feature
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.Name
+        </td>
+        <td>
+            <ul>
+            @foreach (var feature in item.Features)
+            {
+                <li>@feature.Name</li>    
+            }
+            </ul>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
