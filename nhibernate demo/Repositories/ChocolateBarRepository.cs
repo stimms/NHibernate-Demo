@@ -14,12 +14,19 @@ namespace nhibernate_demo.Repositories
             return _session.Query<ChocolateBar>();
         }
 
-        public void Save(ChocolateBar chocolateBar)
+        public ChocolateBar GetByID(int id)
+        {
+            return _session.Load<ChocolateBar>(id);
+        }
+            
+
+        public void Save(ChocolateBar chocolateBar, int chocolatierID)
         {
             using (var transaction = _session.BeginTransaction())
             {
                 try
                 {
+                    chocolateBar.Chocolatier = _session.Load<Chocolatier>(chocolatierID);
                     _session.SaveOrUpdate(chocolateBar);
                     transaction.Commit();
                 }

@@ -4,20 +4,24 @@
     ViewBag.Title = "Chocolate Bars";
 }
 
-<h2>Index1</h2>
+<h2>Chocolate Bars</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
-        <th></th>
+        
         <th>
             Name
         </th>
         <th>
-            Feature
+            Features
         </th>
+        <th>
+            Chocolatier
+        </th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -33,6 +37,12 @@
                 <li>@feature.Name</li>    
             }
             </ul>
+        </td>
+        <td>
+            @if (item.Chocolatier != null)
+            {
+                @item.Chocolatier.Name
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

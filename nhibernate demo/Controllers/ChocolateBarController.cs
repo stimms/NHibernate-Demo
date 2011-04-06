@@ -33,6 +33,9 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Create()
         {
+            var chocolatiersRepo = new ChocolatierRepository();
+            ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
+
             return View();
         } 
 
@@ -40,12 +43,13 @@ namespace nhibernate_demo.Controllers
         // POST: /ChocolatBar/Create
 
         [HttpPost]
-        public ActionResult Create(ChocolateBar chocolateBar)
+        public ActionResult Create(ChocolateBar chocolateBar, int chocolatierID)
         {
             try
             {
                 ChocolateBarRepository repo = new ChocolateBarRepository();
-                repo.Save(chocolateBar);
+
+                repo.Save(chocolateBar, chocolatierID);
 
                 return RedirectToAction("Index");
             }
@@ -60,18 +64,24 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var chocolatiersRepo = new ChocolatierRepository();
+            ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
+
+            ChocolateBarRepository repo = new ChocolateBarRepository();
+            
+            return View(repo.GetByID(id));
         }
 
         //
         // POST: /ChocolatBar/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ChocolateBar chocolateBar, int chocolatierID)
         {
             try
             {
-                // TODO: Add update logic here
+                ChocolateBarRepository repo = new ChocolateBarRepository();
+                repo.Save(chocolateBar, chocolatierID);
  
                 return RedirectToAction("Index");
             }
