@@ -12,7 +12,7 @@ namespace nhibernate_demo.Repositories
     {
         public IQueryable<Chocolatier> GetChocolatiers()
         {
-            return _session.Query<Chocolatier>();
+           return _session.Query<Chocolatier>();
         }
 
         public Chocolatier GetByID(int id)
@@ -38,8 +38,8 @@ namespace nhibernate_demo.Repositories
                     throw ex;
                 }
             }
-            
         }
+
         public void Save(Chocolatier chocolatier)
         {
             using (var transaction = _session.BeginTransaction())

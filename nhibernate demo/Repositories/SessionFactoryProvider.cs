@@ -33,7 +33,7 @@ namespace nhibernate_demo.Repositories
 
         private static void UpdateSchema(NHibernate.Cfg.Configuration conf)
         {
-            //new SchemaExport(conf).Execute(true, true, false);
+            new SchemaExport(conf).Execute(true, true, false);
             new SchemaUpdate(conf).Execute(true, true);
         }
     }

@@ -2,3 +2,47 @@
 2011-04-06 10:30:28,315 [1] WARN  Rhino.Licensing.LicenseValidator [(null)] - Could not find license file: C:\Users\stimms.GEOTRAC\AppData\Local\NHibernate Profiler\license.xml
 2011-04-06 10:31:12,355 [1] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
 2011-04-06 10:31:12,432 [1] DEBUG Rhino.Licensing.LicenseValidator [(null)] - License accepted for NHibernate Profiler
+2011-04-06 10:40:44,200 [1] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 10:40:44,388 [1] DEBUG Rhino.Licensing.LicenseValidator [(null)] - License accepted for NHibernate Profiler
+2011-04-06 10:45:44,270 [4] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 10:50:44,271 [14] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 10:55:44,299 [15] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:00:44,288 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:05:44,275 [14] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:10:44,362 [15] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:15:44,360 [14] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:20:44,350 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:25:44,353 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:30:44,353 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:35:44,415 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:40:44,520 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:45:44,506 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:50:44,493 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 11:55:44,479 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:00:44,499 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:05:44,489 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:10:44,488 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:15:44,478 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:20:44,463 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:25:44,451 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:30:44,439 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:35:44,423 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:40:44,698 [11] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:45:44,693 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:50:44,690 [13] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 12:55:44,680 [15] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:00:44,671 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:05:44,659 [15] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:10:44,667 [8] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:11:06,575 [1] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:11:06,879 [1] DEBUG Rhino.Licensing.LicenseValidator [(null)] - License accepted for NHibernate Profiler
+2011-04-06 13:16:06,620 [4] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:21:06,626 [12] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:26:06,613 [10] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:31:06,603 [13] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:36:06,594 [13] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:41:06,580 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:46:06,567 [13] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:51:06,556 [6] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 13:56:06,542 [13] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 14:01:06,537 [10] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
