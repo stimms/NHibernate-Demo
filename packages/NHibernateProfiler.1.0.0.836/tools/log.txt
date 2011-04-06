@@ -1,0 +1,4 @@
+2011-04-06 10:24:58,655 [1] WARN  Rhino.Licensing.LicenseValidator [(null)] - Could not find license file: C:\Users\stimms.GEOTRAC\AppData\Local\NHibernate Profiler\license.xml
+2011-04-06 10:30:28,315 [1] WARN  Rhino.Licensing.LicenseValidator [(null)] - Could not find license file: C:\Users\stimms.GEOTRAC\AppData\Local\NHibernate Profiler\license.xml
+2011-04-06 10:31:12,355 [1] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 05/08/2011 16:24:27
+2011-04-06 10:31:12,432 [1] DEBUG Rhino.Licensing.LicenseValidator [(null)] - License accepted for NHibernate Profiler
