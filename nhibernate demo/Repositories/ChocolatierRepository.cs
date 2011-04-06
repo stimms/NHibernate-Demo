@@ -8,7 +8,7 @@ using NHibernate.Linq;
 
 namespace nhibernate_demo.Repositories
 {
-    public class ChocolatierRepository:BaseRepository
+    public class ChocolatierRepository : BaseRepository, IChocolatierRepository
     {
         public IQueryable<Chocolatier> GetChocolatiers()
         {

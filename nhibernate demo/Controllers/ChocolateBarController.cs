@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using nhibernate_demo.Repositories;
 using nhibernate_demo.Models;
+using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
@@ -15,7 +16,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Index()
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             return View(repo.GetChocolateBars());
         }
 
@@ -24,7 +25,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Details(int id)
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             return View(repo.GetChocolateBars());
         }
 
@@ -47,7 +48,7 @@ namespace nhibernate_demo.Controllers
         {
             try
             {
-                ChocolateBarRepository repo = new ChocolateBarRepository();
+                var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
                 chocolateBar.Features.Clear();
                 foreach(string feature in features.Split(','))
                 {
@@ -71,7 +72,7 @@ namespace nhibernate_demo.Controllers
             var chocolatiersRepo = new ChocolatierRepository();
             ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
 
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>(); //MvcApplication.container.Resolve<IChocolateBarRepository>();
             
             return View(repo.GetByID(id));
         }
@@ -84,7 +85,7 @@ namespace nhibernate_demo.Controllers
         {
             try
             {
-                ChocolateBarRepository repo = new ChocolateBarRepository();
+                var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
 
                 chocolateBar.Features.Clear();
                 foreach (string feature in features.Split(','))
@@ -105,7 +106,7 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Delete(int id)
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             repo.Delete(id);
             return RedirectToAction("Index");
         }

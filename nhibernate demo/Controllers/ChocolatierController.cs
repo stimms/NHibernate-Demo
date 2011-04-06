@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using nhibernate_demo.Repositories;
 using nhibernate_demo.Models;
+using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
@@ -15,7 +16,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Index()
         {
-            var repository = new ChocolatierRepository();
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
             return View(repository.GetChocolatiers());
         }
 
@@ -44,7 +45,7 @@ namespace nhibernate_demo.Controllers
             try
             {
 
-                var repository = new ChocolatierRepository();
+                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
                 repository.Save(chocolatier);
                 return RedirectToAction("Index");
             }
@@ -59,7 +60,7 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Edit(int id)
         {
-            var repository = new ChocolatierRepository();
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
 
             return View(repository.GetByID(id));
         }
@@ -72,7 +73,7 @@ namespace nhibernate_demo.Controllers
         {
             try
             {
-                var repository = new ChocolatierRepository();
+                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
                 repository.Save(chocolatier);
                 return RedirectToAction("Index");
             }
@@ -87,7 +88,7 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Delete(int id)
         {
-            var repository = new ChocolatierRepository();
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
             repository.Delete(id);
             return RedirectToAction("Index");
         }

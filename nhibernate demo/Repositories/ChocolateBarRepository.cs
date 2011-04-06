@@ -7,7 +7,7 @@ using NHibernate.Linq;
 
 namespace nhibernate_demo.Repositories
 {
-    public class ChocolateBarRepository : BaseRepository
+    public class ChocolateBarRepository : BaseRepository, IChocolateBarRepository
     {
         public IQueryable<ChocolateBar> GetChocolateBars()
         {

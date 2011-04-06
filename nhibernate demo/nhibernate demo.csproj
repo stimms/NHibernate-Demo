@@ -101,6 +101,8 @@
     <Compile Include="Repositories\ChocolateBarRepository.cs" />
     <Compile Include="Repositories\ChocolatierRepository.cs" />
     <Compile Include="Repositories\FeatureRepository.cs" />
+    <Compile Include="Repositories\IChocolateBarRepository.cs" />
+    <Compile Include="Repositories\IChocolatierRepository.cs" />
     <Compile Include="Repositories\SessionFactoryProvider.cs" />
   </ItemGroup>
   <ItemGroup>
