@@ -34,7 +34,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Create()
         {
-            var chocolatiersRepo = new ChocolatierRepository();
+            var chocolatiersRepo = MvcApplication.container.Resolve<IChocolatierRepository>();
             ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
 
             return View();
@@ -69,7 +69,7 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Edit(int id)
         {
-            var chocolatiersRepo = new ChocolatierRepository();
+            var chocolatiersRepo = MvcApplication.container.Resolve<IChocolatierRepository>();
             ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
 
             var repo = MvcApplication.container.Resolve<IChocolateBarRepository>(); //MvcApplication.container.Resolve<IChocolateBarRepository>();

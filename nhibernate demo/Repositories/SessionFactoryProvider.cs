@@ -15,7 +15,7 @@ namespace nhibernate_demo.Repositories
     public class SessionFactoryProvider
     {
         private static ISessionFactory _session;
-        
+
         public static ISessionFactory BuildSessionFactory()
         {
             if (_session == null)
@@ -24,6 +24,7 @@ namespace nhibernate_demo.Repositories
                                    .Mappings(x => x.FluentMappings.AddFromAssemblyOf<ChocolateBarMap>().Conventions.AddFromAssemblyOf<CascadeConvention>())
                                    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
                                    .ExposeConfiguration(UpdateSchema)
+                                   .CurrentSessionContext("web")
                                    .BuildSessionFactory();
                     
                     

@@ -7,6 +7,9 @@ using System.Web.Routing;
 using log4net;
 using Autofac;
 using System.Reflection;
+using NHibernate.Context;
+using NHibernate;
+using nhibernate_demo.Repositories;
 
 namespace nhibernate_demo
 {
@@ -41,6 +44,8 @@ namespace nhibernate_demo
             {
                 ContainerBuilder builder = new ContainerBuilder();
                 builder.RegisterAssemblyTypes(Assembly.GetCallingAssembly()).Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces();
+                //SessionFactoryProvider.BuildSessionFactory().OpenSession();
+                builder.Register<ISession>(x => SessionFactoryProvider.BuildSessionFactory().OpenSession()).InstancePerLifetimeScope();
                 container = builder.Build();
             }
         }
@@ -58,6 +63,17 @@ namespace nhibernate_demo
 
             CreateContainer();
             log.Info("Startup complete");
+        }
+
+        protected void Application_BeginRequest()
+        {
+            var session = SessionFactoryProvider.BuildSessionFactory().OpenSession();
+            CurrentSessionContext.Bind(session);
+        }
+
+        protected void Application_EndRequest()
+        {
+            CurrentSessionContext.Unbind(SessionFactoryProvider.BuildSessionFactory());
         }
     }
 }

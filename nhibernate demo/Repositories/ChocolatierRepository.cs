@@ -10,6 +10,9 @@ namespace nhibernate_demo.Repositories
 {
     public class ChocolatierRepository : BaseRepository, IChocolatierRepository
     {
+
+        public ChocolatierRepository(ISession session) : base(session) { }
+
         public IQueryable<Chocolatier> GetChocolatiers()
         {
            return _session.Query<Chocolatier>();

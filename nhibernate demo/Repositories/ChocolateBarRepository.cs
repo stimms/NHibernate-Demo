@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using nhibernate_demo.Models;
 using NHibernate.Linq;
+using NHibernate;
 
 namespace nhibernate_demo.Repositories
 {
     public class ChocolateBarRepository : BaseRepository, IChocolateBarRepository
     {
+
+        public ChocolateBarRepository(ISession session) : base(session) { }
 
         public IQueryable<ChocolateBar> GetChocolateBars()
         {
@@ -28,7 +31,7 @@ namespace nhibernate_demo.Repositories
                 try
                 {
                     chocolateBar.Chocolatier = _session.Load<Chocolatier>(chocolatierID);
-                    _session.SaveOrUpdate(chocolateBar);
+                    _session.Merge(chocolateBar);
                     transaction.Commit();
                 }
                 catch (Exception ex)
