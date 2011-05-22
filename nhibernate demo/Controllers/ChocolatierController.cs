@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using nhibernate_demo.Repositories;
 using nhibernate_demo.Models;
+using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
@@ -15,7 +16,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Index()
         {
-            var repository = new ChocolatierRepository();
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
             return View(repository.GetChocolatiers());
         }
 
@@ -44,7 +45,7 @@ namespace nhibernate_demo.Controllers
             try
             {
 
-                var repository = new ChocolatierRepository();
+                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
                 repository.Save(chocolatier);
                 return RedirectToAction("Index");
             }
@@ -59,19 +60,21 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
+
+            return View(repository.GetByID(id));
         }
 
         //
         // POST: /Chocolatier/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Chocolatier chocolatier)
         {
             try
             {
-                // TODO: Add update logic here
- 
+                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
+                repository.Save(chocolatier);
                 return RedirectToAction("Index");
             }
             catch
@@ -85,25 +88,9 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        //
-        // POST: /Chocolatier/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
+            repository.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

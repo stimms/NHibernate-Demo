@@ -1,4 +1,4 @@
-﻿@model IEnumerable<nhibernate_demo.Models.ChocolateBar>
+﻿@model IQueryable<nhibernate_demo.Models.ChocolateBar>
 
 @{
     ViewBag.Title = "Chocolate Bars";
@@ -46,7 +46,6 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>

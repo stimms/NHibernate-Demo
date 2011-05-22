@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using nhibernate_demo.Repositories;
 using nhibernate_demo.Models;
+using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
@@ -15,7 +16,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Index()
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             return View(repo.GetChocolateBars());
         }
 
@@ -24,7 +25,7 @@ namespace nhibernate_demo.Controllers
 
         public ActionResult Details(int id)
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             return View(repo.GetChocolateBars());
         }
 
@@ -43,12 +44,16 @@ namespace nhibernate_demo.Controllers
         // POST: /ChocolatBar/Create
 
         [HttpPost]
-        public ActionResult Create(ChocolateBar chocolateBar, int chocolatierID)
+        public ActionResult Create(ChocolateBar chocolateBar, int chocolatierID, string features)
         {
             try
             {
-                ChocolateBarRepository repo = new ChocolateBarRepository();
-
+                var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
+                chocolateBar.Features.Clear();
+                foreach(string feature in features.Split(','))
+                {
+                    chocolateBar.Features.Add(new Feature { Name = feature });
+                }
                 repo.Save(chocolateBar, chocolatierID);
 
                 return RedirectToAction("Index");
@@ -67,7 +72,7 @@ namespace nhibernate_demo.Controllers
             var chocolatiersRepo = new ChocolatierRepository();
             ViewData["Chocolatiers"] = chocolatiersRepo.GetChocolatiers().ToList();
 
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>(); //MvcApplication.container.Resolve<IChocolateBarRepository>();
             
             return View(repo.GetByID(id));
         }
@@ -76,13 +81,18 @@ namespace nhibernate_demo.Controllers
         // POST: /ChocolatBar/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(ChocolateBar chocolateBar, int chocolatierID)
+        public ActionResult Edit(ChocolateBar chocolateBar, int chocolatierID, string features)
         {
             try
             {
-                ChocolateBarRepository repo = new ChocolateBarRepository();
+                var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
+
+                chocolateBar.Features.Clear();
+                foreach (string feature in features.Split(','))
+                {
+                    chocolateBar.Features.Add(new Feature { Name = feature });
+                }
                 repo.Save(chocolateBar, chocolatierID);
- 
                 return RedirectToAction("Index");
             }
             catch
@@ -96,7 +106,7 @@ namespace nhibernate_demo.Controllers
  
         public ActionResult Delete(int id)
         {
-            ChocolateBarRepository repo = new ChocolateBarRepository();
+            var repo = MvcApplication.container.Resolve<IChocolateBarRepository>();
             repo.Delete(id);
             return RedirectToAction("Index");
         }
