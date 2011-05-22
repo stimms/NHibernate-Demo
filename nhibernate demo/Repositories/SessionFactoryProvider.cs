@@ -34,7 +34,14 @@ namespace nhibernate_demo.Repositories
 
         private static void UpdateSchema(NHibernate.Cfg.Configuration conf)
         {
-            new SchemaExport(conf).Execute(true, true, false);
+            bool cleanDatabaseOnLaunch = false;
+            if (ConfigurationManager.AppSettings["CleanDatabaseOnLaunch"] !=  null 
+             && bool.TryParse(ConfigurationManager.AppSettings["CleanDatabaseOnLaunch"], out cleanDatabaseOnLaunch) 
+             && cleanDatabaseOnLaunch)
+            {
+                new SchemaExport(conf).Execute(true, true, false);
+            }
+            
             new SchemaUpdate(conf).Execute(true, true);
         }
     }

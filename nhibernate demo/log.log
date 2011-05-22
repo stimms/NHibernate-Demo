@@ -19196,3 +19196,514 @@ DEBUG [2011-05-21 23:43:38,486] - initializing non-lazy collections
 DEBUG [2011-05-21 23:43:38,486] - after autocommit
 DEBUG [2011-05-21 23:43:38,486] - transaction completion
 DEBUG [2011-05-21 23:43:38,486] - aggressively releasing database connection
+ INFO [2011-05-21 23:47:47,907] - Starting up
+ INFO [2011-05-21 23:47:48,429] - Startup complete
+DEBUG [2011-05-21 23:47:49,317] - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="nhibernate_demo.Models.ChocolateBar, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`ChocolateBar`"><id name="ID" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="ID" /><generator class="identity" /></id><bag cascade="all" name="Features"><key><column name="ChocolateBar_id" /></key><one-to-many class="nhibernate_demo.Models.Feature, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /></bag><property name="Name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="Name" /></property><many-to-one class="nhibernate_demo.Models.Chocolatier, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Chocolatier"><column name="ChocolatierID" /></many-to-one></class></hibernate-mapping>
+ INFO [2011-05-21 23:47:49,434] - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+ INFO [2011-05-21 23:47:49,475] - Mapping class: nhibernate_demo.Models.ChocolateBar -> ChocolateBar
+DEBUG [2011-05-21 23:47:49,504] - Mapped property: ID -> ID, type: Int32
+DEBUG [2011-05-21 23:47:49,536] - Mapped property: Features, type: System.Collections.Generic.ICollection`1[[nhibernate_demo.Models.Feature, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](nhibernate_demo.Models.ChocolateBar.Features)
+DEBUG [2011-05-21 23:47:49,538] - Mapped property: Name -> Name, type: String
+DEBUG [2011-05-21 23:47:49,546] - Mapped property: Chocolatier -> ChocolatierID, type: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,553] - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="nhibernate_demo.Models.Chocolatier, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Chocolatier`"><id name="ID" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="ID" /><generator class="identity" /></id><property name="Name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="Name" /></property></class></hibernate-mapping>
+ INFO [2011-05-21 23:47:49,553] - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+ INFO [2011-05-21 23:47:49,554] - Mapping class: nhibernate_demo.Models.Chocolatier -> Chocolatier
+DEBUG [2011-05-21 23:47:49,554] - Mapped property: ID -> ID, type: Int32
+DEBUG [2011-05-21 23:47:49,554] - Mapped property: Name -> Name, type: String
+DEBUG [2011-05-21 23:47:49,555] - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="nhibernate_demo.Models.Feature, nhibernate demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Feature`"><id name="ID" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="ID" /><generator class="identity" /></id><property name="Name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="Name" /></property></class></hibernate-mapping>
+ INFO [2011-05-21 23:47:49,556] - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+ INFO [2011-05-21 23:47:49,556] - Mapping class: nhibernate_demo.Models.Feature -> Feature
+DEBUG [2011-05-21 23:47:49,556] - Mapped property: ID -> ID, type: Int32
+DEBUG [2011-05-21 23:47:49,556] - Mapped property: Name -> Name, type: String
+ INFO [2011-05-21 23:47:49,559] - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+ INFO [2011-05-21 23:47:49,561] - Running hbm2ddl schema update
+ INFO [2011-05-21 23:47:49,567] - fetching database metadata
+ INFO [2011-05-21 23:47:49,567] - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+ INFO [2011-05-21 23:47:49,568] - Configuring ConnectionProvider
+DEBUG [2011-05-21 23:47:49,569] - Obtaining IDbConnection from Driver
+ INFO [2011-05-21 23:47:49,578] - updating schema
+ INFO [2011-05-21 23:47:49,584] - checking mappings queue
+ INFO [2011-05-21 23:47:49,584] - processing one-to-many association mappings
+DEBUG [2011-05-21 23:47:49,585] - Second pass for collection: nhibernate_demo.Models.ChocolateBar.Features
+ INFO [2011-05-21 23:47:49,586] - mapping collection: nhibernate_demo.Models.ChocolateBar.Features -> Feature
+DEBUG [2011-05-21 23:47:49,590] - Mapped collection key: ChocolateBar_id, one-to-many: nhibernate_demo.Models.Feature
+ INFO [2011-05-21 23:47:49,590] - processing one-to-one association property references
+ INFO [2011-05-21 23:47:49,590] - processing foreign key constraints
+DEBUG [2011-05-21 23:47:49,592] - resolving reference to class: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,593] - resolving reference to class: nhibernate_demo.Models.ChocolateBar
+ INFO [2011-05-21 23:47:49,593] - processing filters (second pass)
+ INFO [2011-05-21 23:47:49,619] - table found: NHibernateTest.dbo.ChocolateBar
+ INFO [2011-05-21 23:47:49,620] - columns: id, name, chocolatierid
+ INFO [2011-05-21 23:47:49,620] - foreign keys: fk6a71dc85364f3ba
+ INFO [2011-05-21 23:47:49,620] - indexes: pk__chocolat__3214ec2734c8d9d1
+ INFO [2011-05-21 23:47:49,632] - table found: NHibernateTest.dbo.Chocolatier
+ INFO [2011-05-21 23:47:49,632] - columns: id, name
+ INFO [2011-05-21 23:47:49,632] - foreign keys: 
+ INFO [2011-05-21 23:47:49,632] - indexes: pk__chocolat__3214ec2738996ab5
+ INFO [2011-05-21 23:47:49,635] - table found: NHibernateTest.dbo.Feature
+ INFO [2011-05-21 23:47:49,635] - columns: id, name, chocolatebar_id
+ INFO [2011-05-21 23:47:49,635] - foreign keys: fk1328745f39440519
+ INFO [2011-05-21 23:47:49,635] - indexes: pk__feature__3214ec273c69fb99
+ INFO [2011-05-21 23:47:49,649] - schema update complete
+DEBUG [2011-05-21 23:47:49,650] - Closing connection
+ INFO [2011-05-21 23:47:49,650] - checking mappings queue
+ INFO [2011-05-21 23:47:49,650] - processing one-to-many association mappings
+ INFO [2011-05-21 23:47:49,650] - processing one-to-one association property references
+ INFO [2011-05-21 23:47:49,650] - processing foreign key constraints
+DEBUG [2011-05-21 23:47:49,651] - resolving reference to class: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,651] - resolving reference to class: nhibernate_demo.Models.ChocolateBar
+ INFO [2011-05-21 23:47:49,651] - processing filters (second pass)
+ INFO [2011-05-21 23:47:49,675] - Using dialect: NHibernate.Dialect.MsSql2008Dialect
+ INFO [2011-05-21 23:47:49,698] - Using dialect defined converter
+ INFO [2011-05-21 23:47:49,698] - Generate SQL with comments: disabled
+ INFO [2011-05-21 23:47:49,698] - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+ INFO [2011-05-21 23:47:49,698] - Configuring ConnectionProvider
+ INFO [2011-05-21 23:47:49,699] - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+ INFO [2011-05-21 23:47:49,699] - Optimize cache for minimal puts: False
+ INFO [2011-05-21 23:47:49,699] - Connection release mode: auto
+ INFO [2011-05-21 23:47:49,699] - Default batch fetch size: 1
+ INFO [2011-05-21 23:47:49,699] - Statistics: disabled
+ INFO [2011-05-21 23:47:49,699] - Deleted entity synthetic identifier rollback: disabled
+ INFO [2011-05-21 23:47:49,700] - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+ INFO [2011-05-21 23:47:49,701] - Query language substitutions: {}
+ INFO [2011-05-21 23:47:49,701] - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+DEBUG [2011-05-21 23:47:49,701] - Wrap result sets: disabled
+ INFO [2011-05-21 23:47:49,702] - Batcher factory: NHibernate.AdoNet.NonBatchingBatcherFactory, NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+ INFO [2011-05-21 23:47:49,702] - Default entity-mode: Poco
+ INFO [2011-05-21 23:47:49,702] - Named query checking : enabled
+ INFO [2011-05-21 23:47:49,720] - building session factory
+DEBUG [2011-05-21 23:47:49,720] - Session factory constructed with filter configurations : {}
+DEBUG [2011-05-21 23:47:49,721] - instantiating session factory with properties: {'connection.provider'='NHibernate.Connection.DriverConnectionProvider', 'proxyfactory.factory_class'='NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle', 'connection.driver_class'='NHibernate.Driver.SqlClientDriver, NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MsSql2008Dialect, NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'hibernate.dialect'='NHibernate.Dialect.MsSql2008Dialect, NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'connection.connection_string'='Data Source=(local);Initial Catalog=NHibernateTest;Integrated Security=SSPI;', 'current_session_context_class'='web'}
+DEBUG [2011-05-21 23:47:49,722] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:47:49,724] - Closing connection
+DEBUG [2011-05-21 23:47:49,781] - No custom accessors found for entity: nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:47:49,785] - No custom accessors found for entity: nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:47:49,796] - Create Instantiator using optimizer for:nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:47:49,820] - No custom accessors found for entity: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,820] - No custom accessors found for entity: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,820] - Create Instantiator using optimizer for:nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,821] - No custom accessors found for entity: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:47:49,821] - No custom accessors found for entity: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:47:49,821] - Create Instantiator using optimizer for:nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:47:49,846] - Static SQL for collection: nhibernate_demo.Models.ChocolateBar.Features
+DEBUG [2011-05-21 23:47:49,847] -  Row insert: UPDATE [Feature] SET ChocolateBar_id = ? WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,847] -  Row delete: UPDATE [Feature] SET ChocolateBar_id = null WHERE ChocolateBar_id = ? AND ID = ?
+DEBUG [2011-05-21 23:47:49,847] -  One-shot delete: UPDATE [Feature] SET ChocolateBar_id = null WHERE ChocolateBar_id = ?
+DEBUG [2011-05-21 23:47:49,885] - Static SQL for entity: nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:47:49,885] -  Version select: SELECT ID FROM [ChocolateBar] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,885] -  Snapshot select: SELECT chocolateb_.ID, chocolateb_.Name as Name0_, chocolateb_.ChocolatierID as Chocolat3_0_ FROM [ChocolateBar] chocolateb_ WHERE chocolateb_.ID=?
+DEBUG [2011-05-21 23:47:49,885] -  Insert 0: INSERT INTO [ChocolateBar] (Name, ChocolatierID, ID) VALUES (?, ?, ?)
+DEBUG [2011-05-21 23:47:49,885] -  Update 0: UPDATE [ChocolateBar] SET Name = ?, ChocolatierID = ? WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,885] -  Delete 0: DELETE FROM [ChocolateBar] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,885] -  Identity insert: INSERT INTO [ChocolateBar] (Name, ChocolatierID) VALUES (?, ?); select SCOPE_IDENTITY()
+DEBUG [2011-05-21 23:47:49,917] - Static select for entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_0_, chocolateb0_.Name as Name0_0_, chocolateb0_.ChocolatierID as Chocolat3_0_0_ FROM [ChocolateBar] chocolateb0_ WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,917] - Static select for entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_0_, chocolateb0_.Name as Name0_0_, chocolateb0_.ChocolatierID as Chocolat3_0_0_ FROM [ChocolateBar] chocolateb0_ WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,917] - Static select for entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_0_, chocolateb0_.Name as Name0_0_, chocolateb0_.ChocolatierID as Chocolat3_0_0_ FROM [ChocolateBar] chocolateb0_ with (updlock, rowlock) WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,917] - Static select for entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_0_, chocolateb0_.Name as Name0_0_, chocolateb0_.ChocolatierID as Chocolat3_0_0_ FROM [ChocolateBar] chocolateb0_ with (updlock, rowlock) WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,917] - Static select for entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_0_, chocolateb0_.Name as Name0_0_, chocolateb0_.ChocolatierID as Chocolat3_0_0_ FROM [ChocolateBar] chocolateb0_ with (updlock, rowlock) WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,927] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_1_, chocolateb0_.Name as Name0_1_, chocolateb0_.ChocolatierID as Chocolat3_0_1_, features1_.ChocolateBar_id as Chocolat3_3_, features1_.ID as ID3_, features1_.ID as ID2_0_, features1_.Name as Name2_0_ FROM [ChocolateBar] chocolateb0_ left outer join [Feature] features1_ on chocolateb0_.ID=features1_.ChocolateBar_id WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,927] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity nhibernate_demo.Models.ChocolateBar: SELECT chocolateb0_.ID as ID0_1_, chocolateb0_.Name as Name0_1_, chocolateb0_.ChocolatierID as Chocolat3_0_1_, features1_.ChocolateBar_id as Chocolat3_3_, features1_.ID as ID3_, features1_.ID as ID2_0_, features1_.Name as Name2_0_ FROM [ChocolateBar] chocolateb0_ left outer join [Feature] features1_ on chocolateb0_.ID=features1_.ChocolateBar_id WHERE chocolateb0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static SQL for entity: nhibernate_demo.Models.Chocolatier
+DEBUG [2011-05-21 23:47:49,928] -  Version select: SELECT ID FROM [Chocolatier] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,928] -  Snapshot select: SELECT chocolatie_.ID, chocolatie_.Name as Name1_ FROM [Chocolatier] chocolatie_ WHERE chocolatie_.ID=?
+DEBUG [2011-05-21 23:47:49,928] -  Insert 0: INSERT INTO [Chocolatier] (Name, ID) VALUES (?, ?)
+DEBUG [2011-05-21 23:47:49,928] -  Update 0: UPDATE [Chocolatier] SET Name = ? WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,928] -  Delete 0: DELETE FROM [Chocolatier] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,928] -  Identity insert: INSERT INTO [Chocolatier] (Name) VALUES (?); select SCOPE_IDENTITY()
+DEBUG [2011-05-21 23:47:49,928] - Static select for entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ with (updlock, rowlock) WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ with (updlock, rowlock) WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ with (updlock, rowlock) WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity nhibernate_demo.Models.Chocolatier: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:49,928] - Static SQL for entity: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:47:49,928] -  Version select: SELECT ID FROM [Feature] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,928] -  Snapshot select: SELECT feature_.ID, feature_.Name as Name2_ FROM [Feature] feature_ WHERE feature_.ID=?
+DEBUG [2011-05-21 23:47:49,928] -  Insert 0: INSERT INTO [Feature] (Name, ID) VALUES (?, ?)
+DEBUG [2011-05-21 23:47:49,928] -  Update 0: UPDATE [Feature] SET Name = ? WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,929] -  Delete 0: DELETE FROM [Feature] WHERE ID = ?
+DEBUG [2011-05-21 23:47:49,929] -  Identity insert: INSERT INTO [Feature] (Name) VALUES (?); select SCOPE_IDENTITY()
+DEBUG [2011-05-21 23:47:49,929] - Static select for entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ with (updlock, rowlock) WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ with (updlock, rowlock) WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ with (updlock, rowlock) WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,929] - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity nhibernate_demo.Models.Feature: SELECT feature0_.ID as ID2_0_, feature0_.Name as Name2_0_ FROM [Feature] feature0_ WHERE feature0_.ID=?
+DEBUG [2011-05-21 23:47:49,934] - Static select for one-to-many nhibernate_demo.Models.ChocolateBar.Features: SELECT features0_.ChocolateBar_id as Chocolat3_1_, features0_.ID as ID1_, features0_.ID as ID2_0_, features0_.Name as Name2_0_ FROM [Feature] features0_ WHERE features0_.ChocolateBar_id=?
+DEBUG [2011-05-21 23:47:49,934] - registered: 50950eb6050e4af8a1921bdda7c041cd(unnamed)
+ INFO [2011-05-21 23:47:49,935] - no name configured
+DEBUG [2011-05-21 23:47:49,935] - Instantiated session factory
+DEBUG [2011-05-21 23:47:49,939] - Checking 0 named HQL queries
+DEBUG [2011-05-21 23:47:49,939] - Checking 0 named SQL queries
+DEBUG [2011-05-21 23:47:49,950] - [session-id=5ee5d71c-37b3-40cc-8e93-cbea6000ee7c] opened session at timestamp: 634416184699, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:50,028] - [session-id=884da16f-8cd9-4eee-bafd-6a2260e49d8a] opened session at timestamp: 634416184700, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:50,750] - unable to locate HQL query plan in cache; generating (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar])
+DEBUG [2011-05-21 23:47:50,965] - select << begin [level=1, statement=select]
+DEBUG [2011-05-21 23:47:50,980] - FromClause{level=1} :  nhibernate_demo.Models.ChocolateBar (<generated>_0) -> chocolateb0_
+DEBUG [2011-05-21 23:47:50,993] - Resolved :  <generated>_0 -> chocolateb0_.ID
+DEBUG [2011-05-21 23:47:50,996] - select : finishing up [level=1, statement=select]
+DEBUG [2011-05-21 23:47:50,998] - processQuery() : ( SELECT ( {select clause} chocolateb0_.ID ) ( FromClause{level=1} [ChocolateBar] chocolateb0_ ) )
+DEBUG [2011-05-21 23:47:51,018] - Using FROM fragment [[ChocolateBar] chocolateb0_]
+DEBUG [2011-05-21 23:47:51,022] - select >> end [level=1, statement=select]
+DEBUG [2011-05-21 23:47:51,023] - throwQueryException() : no errors
+DEBUG [2011-05-21 23:47:51,049] - SQL: select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+DEBUG [2011-05-21 23:47:51,049] - throwQueryException() : no errors
+DEBUG [2011-05-21 23:47:51,077] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar])
+DEBUG [2011-05-21 23:47:51,080] - find: NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar]
+DEBUG [2011-05-21 23:47:51,081] - named parameters: {}
+DEBUG [2011-05-21 23:47:51,103] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:47:51,103] - Building an IDbCommand object for the SqlString: select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+ INFO [2011-05-21 23:47:51,108] - select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+DEBUG [2011-05-21 23:47:51,111] - select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+DEBUG [2011-05-21 23:47:51,115] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:47:51,116] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:47:51,117] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:47:51,118] - processing result set
+DEBUG [2011-05-21 23:47:51,118] - result set row: 0
+DEBUG [2011-05-21 23:47:51,125] - returning '1' as column: ID0_
+DEBUG [2011-05-21 23:47:51,127] - result row: EntityKey[nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:51,133] - Initializing object from DataReader: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:51,137] - Hydrating entity: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:51,138] - returning 'cookies and cream' as column: Name0_
+DEBUG [2011-05-21 23:47:51,138] - returning '1' as column: Chocolat3_0_
+DEBUG [2011-05-21 23:47:51,140] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:47:51,142] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:47:51,142] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:47:51,142] - DataReader was closed after 25 ms
+DEBUG [2011-05-21 23:47:51,142] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:47:51,143] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:51,143] - Closing connection
+DEBUG [2011-05-21 23:47:51,144] - total objects hydrated: 1
+DEBUG [2011-05-21 23:47:51,147] - resolving associations for [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:51,150] - creating collection wrapper:[nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,157] - loading entity: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,158] - creating new proxy for entity
+DEBUG [2011-05-21 23:47:51,296] - done materializing entity [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:51,296] - initializing non-lazy collections
+DEBUG [2011-05-21 23:47:51,299] - after autocommit
+DEBUG [2011-05-21 23:47:51,299] - transaction completion
+DEBUG [2011-05-21 23:47:51,299] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:51,306] - initializing collection [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,306] - checking second-level cache
+DEBUG [2011-05-21 23:47:51,307] - collection not cached
+DEBUG [2011-05-21 23:47:51,309] - loading collection: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,311] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:47:51,311] - Building an IDbCommand object for the SqlString: SELECT features0_.ChocolateBar_id as Chocolat3_1_, features0_.ID as ID1_, features0_.ID as ID2_0_, features0_.Name as Name2_0_ FROM [Feature] features0_ WHERE features0_.ChocolateBar_id=?
+DEBUG [2011-05-21 23:47:51,311] - BindParameters(Positional0:NHibernate.Type.Int32Type) 1 -> [0]
+DEBUG [2011-05-21 23:47:51,311] - binding '1' to parameter: 0
+ INFO [2011-05-21 23:47:51,312] - SELECT features0_.ChocolateBar_id as Chocolat3_1_, features0_.ID as ID1_, features0_.ID as ID2_0_, features0_.Name as Name2_0_ FROM [Feature] features0_ WHERE features0_.ChocolateBar_id=@p0
+DEBUG [2011-05-21 23:47:51,312] - SELECT features0_.ChocolateBar_id as Chocolat3_1_, features0_.ID as ID1_, features0_.ID as ID2_0_, features0_.Name as Name2_0_ FROM [Feature] features0_ WHERE features0_.ChocolateBar_id=@p0;@p0 = 1 [Type: Int32 (0)]
+DEBUG [2011-05-21 23:47:51,313] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:47:51,333] - ExecuteReader took 19 ms
+DEBUG [2011-05-21 23:47:51,333] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:47:51,333] - result set contains (possibly empty) collection: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,334] - constructing collection load context for result set [NHibernate.Driver.NHybridDataReader]
+DEBUG [2011-05-21 23:47:51,336] - starting attempt to find loading collection [[nhibernate_demo.Models.ChocolateBar.Features#1]]
+DEBUG [2011-05-21 23:47:51,336] - collection not yet initialized; initializing
+DEBUG [2011-05-21 23:47:51,338] - processing result set
+DEBUG [2011-05-21 23:47:51,338] - result set row: 0
+DEBUG [2011-05-21 23:47:51,338] - returning '3' as column: ID2_0_
+DEBUG [2011-05-21 23:47:51,338] - result row: EntityKey[nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,339] - Initializing object from DataReader: [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,339] - Hydrating entity: [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,339] - returning 'cookie' as column: Name2_0_
+DEBUG [2011-05-21 23:47:51,340] - returning '1' as column: Chocolat3_1_
+DEBUG [2011-05-21 23:47:51,340] - found row of collection: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,340] - starting attempt to find loading collection [[nhibernate_demo.Models.ChocolateBar.Features#1]]
+DEBUG [2011-05-21 23:47:51,340] - attempting to locate loading collection entry [CollectionKey[nhibernate_demo.Models.ChocolateBar.Features#1]] in any result-set context
+DEBUG [2011-05-21 23:47:51,340] - collection [CollectionKey[nhibernate_demo.Models.ChocolateBar.Features#1]] not located in load context
+DEBUG [2011-05-21 23:47:51,340] - found loading collection bound to current result set processing; reading row
+DEBUG [2011-05-21 23:47:51,340] - returning '3' as column: ID1_
+DEBUG [2011-05-21 23:47:51,340] - loading entity: [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,342] - attempting to resolve: [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,343] - resolved object in session cache: [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,343] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:47:51,344] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:47:51,344] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:47:51,344] - DataReader was closed after 30 ms
+DEBUG [2011-05-21 23:47:51,344] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:47:51,344] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:51,344] - Closing connection
+DEBUG [2011-05-21 23:47:51,344] - total objects hydrated: 1
+DEBUG [2011-05-21 23:47:51,344] - resolving associations for [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,344] - done materializing entity [nhibernate_demo.Models.Feature#3]
+DEBUG [2011-05-21 23:47:51,347] - attempting to locate loading collection entry [CollectionKey[nhibernate_demo.Models.ChocolateBar.Features#1]] in any result-set context
+DEBUG [2011-05-21 23:47:51,347] - collection [CollectionKey[nhibernate_demo.Models.ChocolateBar.Features#1]] not located in load context
+DEBUG [2011-05-21 23:47:51,347] - removing collection load entry [NHibernate.Engine.Loading.LoadingCollectionEntry<rs=NHibernate.Driver.NHybridDataReader, coll=[nhibernate_demo.Models.ChocolateBar.Features#1]>@8c877b]
+DEBUG [2011-05-21 23:47:51,348] - 1 collections were found in result set for role: nhibernate_demo.Models.ChocolateBar.Features
+DEBUG [2011-05-21 23:47:51,349] - ending loading collection [NHibernate.Engine.Loading.LoadingCollectionEntry<rs=NHibernate.Driver.NHybridDataReader, coll=[nhibernate_demo.Models.ChocolateBar.Features#1]>@8c877b]
+DEBUG [2011-05-21 23:47:51,351] - collection fully initialized: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:47:51,351] - 1 collections initialized for role: nhibernate_demo.Models.ChocolateBar.Features
+DEBUG [2011-05-21 23:47:51,352] - initializing non-lazy collections
+DEBUG [2011-05-21 23:47:51,352] - done loading collection
+DEBUG [2011-05-21 23:47:51,352] - collection initialized
+DEBUG [2011-05-21 23:47:51,354] - initializing proxy: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,354] - attempting to resolve: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,354] - object not resolved in any cache: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,355] - Fetching entity: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,357] - loading entity: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,357] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:47:51,357] - Building an IDbCommand object for the SqlString: SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=?
+DEBUG [2011-05-21 23:47:51,357] - BindParameters(Positional0:NHibernate.Type.Int32Type) 1 -> [0]
+DEBUG [2011-05-21 23:47:51,357] - binding '1' to parameter: 0
+ INFO [2011-05-21 23:47:51,357] - SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=@p0
+DEBUG [2011-05-21 23:47:51,357] - SELECT chocolatie0_.ID as ID1_0_, chocolatie0_.Name as Name1_0_ FROM [Chocolatier] chocolatie0_ WHERE chocolatie0_.ID=@p0;@p0 = 1 [Type: Int32 (0)]
+DEBUG [2011-05-21 23:47:51,359] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:47:51,408] - ExecuteReader took 48 ms
+DEBUG [2011-05-21 23:47:51,408] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:47:51,409] - processing result set
+DEBUG [2011-05-21 23:47:51,409] - result set row: 0
+DEBUG [2011-05-21 23:47:51,409] - result row: EntityKey[nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,409] - Initializing object from DataReader: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,409] - Hydrating entity: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,409] - returning 'Hershey' as column: Name1_0_
+DEBUG [2011-05-21 23:47:51,409] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:47:51,409] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:47:51,409] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:47:51,410] - DataReader was closed after 50 ms
+DEBUG [2011-05-21 23:47:51,410] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:47:51,410] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:51,410] - Closing connection
+DEBUG [2011-05-21 23:47:51,410] - total objects hydrated: 1
+DEBUG [2011-05-21 23:47:51,410] - resolving associations for [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,410] - done materializing entity [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:51,410] - initializing non-lazy collections
+DEBUG [2011-05-21 23:47:51,410] - done entity load
+DEBUG [2011-05-21 23:47:52,822] - [session-id=a41e3e4f-ca90-4972-9ab9-378f85196a85] opened session at timestamp: 634416184728, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:52,822] - [session-id=6bade044-2617-4214-b72f-4464d9032179] opened session at timestamp: 634416184728, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:52,823] - [session-id=f1f5852b-5708-4a8f-be82-2d0d18b4f72c] opened session at timestamp: 634416184728, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:57,807] - [session-id=acbc8a07-c2f1-48b2-8ddf-4c2766563f0a] opened session at timestamp: 634416184778, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:57,813] - unable to locate HQL query plan in cache; generating (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier])
+DEBUG [2011-05-21 23:47:57,814] - select << begin [level=1, statement=select]
+DEBUG [2011-05-21 23:47:57,814] - FromClause{level=1} :  nhibernate_demo.Models.Chocolatier (<generated>_1) -> chocolatie0_
+DEBUG [2011-05-21 23:47:57,814] - Resolved :  <generated>_1 -> chocolatie0_.ID
+DEBUG [2011-05-21 23:47:57,815] - select : finishing up [level=1, statement=select]
+DEBUG [2011-05-21 23:47:57,815] - processQuery() : ( SELECT ( {select clause} chocolatie0_.ID ) ( FromClause{level=1} [Chocolatier] chocolatie0_ ) )
+DEBUG [2011-05-21 23:47:57,815] - Using FROM fragment [[Chocolatier] chocolatie0_]
+DEBUG [2011-05-21 23:47:57,815] - select >> end [level=1, statement=select]
+DEBUG [2011-05-21 23:47:57,815] - throwQueryException() : no errors
+DEBUG [2011-05-21 23:47:57,815] - SQL: select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+DEBUG [2011-05-21 23:47:57,815] - throwQueryException() : no errors
+DEBUG [2011-05-21 23:47:57,815] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier])
+DEBUG [2011-05-21 23:47:57,815] - find: NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier]
+DEBUG [2011-05-21 23:47:57,815] - named parameters: {}
+DEBUG [2011-05-21 23:47:57,815] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:47:57,816] - Building an IDbCommand object for the SqlString: select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+ INFO [2011-05-21 23:47:57,816] - select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+DEBUG [2011-05-21 23:47:57,816] - select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+DEBUG [2011-05-21 23:47:57,817] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:47:57,817] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:47:57,817] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:47:57,817] - processing result set
+DEBUG [2011-05-21 23:47:57,817] - result set row: 0
+DEBUG [2011-05-21 23:47:57,817] - returning '1' as column: ID1_
+DEBUG [2011-05-21 23:47:57,817] - result row: EntityKey[nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:47:57,819] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:47:57,819] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:47:57,819] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:47:57,819] - DataReader was closed after 2 ms
+DEBUG [2011-05-21 23:47:57,819] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:47:57,819] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:57,820] - Closing connection
+DEBUG [2011-05-21 23:47:57,820] - total objects hydrated: 0
+DEBUG [2011-05-21 23:47:57,820] - initializing non-lazy collections
+DEBUG [2011-05-21 23:47:57,820] - after autocommit
+DEBUG [2011-05-21 23:47:57,820] - transaction completion
+DEBUG [2011-05-21 23:47:57,820] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:57,822] - loading entity: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:47:57,822] - entity found in session cache
+DEBUG [2011-05-21 23:47:57,822] - after autocommit
+DEBUG [2011-05-21 23:47:57,822] - transaction completion
+DEBUG [2011-05-21 23:47:57,822] - aggressively releasing database connection
+DEBUG [2011-05-21 23:47:59,211] - [session-id=49397c03-b904-4100-b990-a29c8368faa0] opened session at timestamp: 634416184792, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:59,211] - [session-id=a9b1550f-3c93-4aea-8de1-87323a8b2d0d] opened session at timestamp: 634416184792, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:47:59,213] - [session-id=f54c35e1-03e6-4ec5-b288-519a01574489] opened session at timestamp: 634416184792, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:48:08,765] - [session-id=44275aa7-742f-4dc3-b6d6-8311a357693b] opened session at timestamp: 634416184887, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:48:08,772] - Begin (Unspecified)
+DEBUG [2011-05-21 23:48:08,773] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:48:08,774] - loading entity: [nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:48:08,774] - entity proxy found in session cache
+DEBUG [2011-05-21 23:48:08,783] - merging detached instance
+DEBUG [2011-05-21 23:48:08,784] - loading entity: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:48:08,784] - attempting to resolve: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:48:08,785] - resolved object in session cache: [nhibernate_demo.Models.ChocolateBar#1]
+ INFO [2011-05-21 23:48:08,788] - processing cascade NHibernate.Engine.CascadingAction+MergeCascadingAction for: nhibernate_demo.Models.ChocolateBar
+ INFO [2011-05-21 23:48:08,792] - cascade NHibernate.Engine.CascadingAction+MergeCascadingAction for collection: nhibernate_demo.Models.ChocolateBar.Features
+DEBUG [2011-05-21 23:48:08,793] - cascading to merge: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,799] - unsaved-value: 0
+DEBUG [2011-05-21 23:48:08,799] - transient instance of: nhibernate_demo.Models.Feature
+ INFO [2011-05-21 23:48:08,799] - merging transient instance
+DEBUG [2011-05-21 23:48:08,803] - saving [nhibernate_demo.Models.Feature#<null>]
+DEBUG [2011-05-21 23:48:08,805] - executing insertions
+DEBUG [2011-05-21 23:48:08,809] - executing identity-insert immediately
+DEBUG [2011-05-21 23:48:08,811] - Inserting entity: nhibernate_demo.Models.Feature (native id)
+DEBUG [2011-05-21 23:48:08,811] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:08,811] - Building an IDbCommand object for the SqlString: INSERT INTO [Feature] (Name) VALUES (?); select SCOPE_IDENTITY()
+DEBUG [2011-05-21 23:48:08,812] - Dehydrating entity: [nhibernate_demo.Models.Feature#<null>]
+DEBUG [2011-05-21 23:48:08,812] - binding 'cookie' to parameter: 0
+DEBUG [2011-05-21 23:48:08,813] - INSERT INTO [Feature] (Name) VALUES (@p0); select SCOPE_IDENTITY();@p0 = 'cookie' [Type: String (4000)]
+DEBUG [2011-05-21 23:48:08,814] - Enlist Command
+DEBUG [2011-05-21 23:48:08,814] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:48:08,814] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:48:08,815] - returning '4' as column: 
+DEBUG [2011-05-21 23:48:08,815] - Natively generated identity: 4
+DEBUG [2011-05-21 23:48:08,815] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:48:08,815] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:48:08,815] - DataReader was closed after 1 ms
+DEBUG [2011-05-21 23:48:08,816] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:48:08,819] - cascading to merge: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,819] - unsaved-value: 0
+DEBUG [2011-05-21 23:48:08,819] - transient instance of: nhibernate_demo.Models.Feature
+ INFO [2011-05-21 23:48:08,819] - merging transient instance
+DEBUG [2011-05-21 23:48:08,819] - saving [nhibernate_demo.Models.Feature#<null>]
+DEBUG [2011-05-21 23:48:08,819] - executing insertions
+DEBUG [2011-05-21 23:48:08,819] - executing identity-insert immediately
+DEBUG [2011-05-21 23:48:08,819] - Inserting entity: nhibernate_demo.Models.Feature (native id)
+DEBUG [2011-05-21 23:48:08,819] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:08,819] - Building an IDbCommand object for the SqlString: INSERT INTO [Feature] (Name) VALUES (?); select SCOPE_IDENTITY()
+DEBUG [2011-05-21 23:48:08,819] - Dehydrating entity: [nhibernate_demo.Models.Feature#<null>]
+DEBUG [2011-05-21 23:48:08,819] - binding 'yummy' to parameter: 0
+DEBUG [2011-05-21 23:48:08,819] - INSERT INTO [Feature] (Name) VALUES (@p0); select SCOPE_IDENTITY();@p0 = 'yummy' [Type: String (4000)]
+DEBUG [2011-05-21 23:48:08,820] - Enlist Command
+DEBUG [2011-05-21 23:48:08,821] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:48:08,821] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:48:08,821] - returning '5' as column: 
+DEBUG [2011-05-21 23:48:08,821] - Natively generated identity: 5
+DEBUG [2011-05-21 23:48:08,821] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:48:08,821] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:48:08,821] - DataReader was closed after 0 ms
+DEBUG [2011-05-21 23:48:08,821] - Closed IDbCommand, open IDbCommands: 0
+ INFO [2011-05-21 23:48:08,821] - done cascade NHibernate.Engine.CascadingAction+MergeCascadingAction for collection: nhibernate_demo.Models.ChocolateBar.Features
+ INFO [2011-05-21 23:48:08,821] - done processing cascade NHibernate.Engine.CascadingAction+MergeCascadingAction for: nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:48:08,826] - Start Commit
+DEBUG [2011-05-21 23:48:08,829] - flushing session
+DEBUG [2011-05-21 23:48:08,830] - processing flush-time cascades
+ INFO [2011-05-21 23:48:08,831] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: nhibernate_demo.Models.ChocolateBar
+ INFO [2011-05-21 23:48:08,831] - cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for collection: nhibernate_demo.Models.ChocolateBar.Features
+DEBUG [2011-05-21 23:48:08,831] - cascading to saveOrUpdate: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,833] - persistent instance of: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,834] - ignoring persistent instance
+DEBUG [2011-05-21 23:48:08,834] - object already associated with session: [nhibernate_demo.Models.Feature#4]
+DEBUG [2011-05-21 23:48:08,834] - cascading to saveOrUpdate: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,834] - persistent instance of: nhibernate_demo.Models.Feature
+DEBUG [2011-05-21 23:48:08,834] - ignoring persistent instance
+DEBUG [2011-05-21 23:48:08,834] - object already associated with session: [nhibernate_demo.Models.Feature#5]
+ INFO [2011-05-21 23:48:08,834] - done cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for collection: nhibernate_demo.Models.ChocolateBar.Features
+ INFO [2011-05-21 23:48:08,834] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: nhibernate_demo.Models.ChocolateBar
+DEBUG [2011-05-21 23:48:08,834] - dirty checking collections
+DEBUG [2011-05-21 23:48:08,835] - Collection dirty: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:48:08,836] - Flushing entities and processing referenced collections
+DEBUG [2011-05-21 23:48:08,844] - Collection found: [nhibernate_demo.Models.ChocolateBar.Features#1], was: [nhibernate_demo.Models.ChocolateBar.Features#1] (initialized)
+DEBUG [2011-05-21 23:48:08,846] - Processing unreferenced collections
+DEBUG [2011-05-21 23:48:08,847] - Scheduling collection removes/(re)creates/updates
+DEBUG [2011-05-21 23:48:08,847] - Flushed: 0 insertions, 0 updates, 0 deletions to 5 objects
+DEBUG [2011-05-21 23:48:08,847] - Flushed: 0 (re)creations, 1 updates, 0 removals to 1 collections
+DEBUG [2011-05-21 23:48:08,848] - listing entities:
+DEBUG [2011-05-21 23:48:08,853] - nhibernate_demo.Models.ChocolateBar{'ID'='1', 'Features'='['nhibernate_demo.Models.Feature#4', 'nhibernate_demo.Models.Feature#5']', 'Name'='cookies and cream', 'Chocolatier'='nhibernate_demo.Models.Chocolatier#1'}
+DEBUG [2011-05-21 23:48:08,853] - nhibernate_demo.Models.Feature{'ID'='3', 'Name'='cookie'}
+DEBUG [2011-05-21 23:48:08,853] - nhibernate_demo.Models.Chocolatier{'ID'='1', 'Name'='Hershey'}
+DEBUG [2011-05-21 23:48:08,853] - nhibernate_demo.Models.Feature{'ID'='4', 'Name'='cookie'}
+DEBUG [2011-05-21 23:48:08,853] - nhibernate_demo.Models.Feature{'ID'='5', 'Name'='yummy'}
+DEBUG [2011-05-21 23:48:08,853] - executing flush
+DEBUG [2011-05-21 23:48:08,854] - registering flush begin
+DEBUG [2011-05-21 23:48:08,858] - Deleting rows of collection: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:48:08,860] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:08,860] - Building an IDbCommand object for the SqlString: UPDATE [Feature] SET ChocolateBar_id = null WHERE ChocolateBar_id = ? AND ID = ?
+DEBUG [2011-05-21 23:48:08,860] - binding '1' to parameter: 0
+DEBUG [2011-05-21 23:48:08,861] - binding '3' to parameter: 1
+DEBUG [2011-05-21 23:48:08,862] - UPDATE [Feature] SET ChocolateBar_id = null WHERE ChocolateBar_id = @p0 AND ID = @p1;@p0 = 1 [Type: Int32 (0)], @p1 = 3 [Type: Int32 (0)]
+DEBUG [2011-05-21 23:48:08,863] - Enlist Command
+DEBUG [2011-05-21 23:48:08,863] - ExecuteNonQuery took 0 ms
+DEBUG [2011-05-21 23:48:08,863] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:48:08,864] - done deleting collection rows: 1 deleted
+DEBUG [2011-05-21 23:48:08,865] - Inserting rows of collection: [nhibernate_demo.Models.ChocolateBar.Features#1]
+DEBUG [2011-05-21 23:48:08,867] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:08,867] - Building an IDbCommand object for the SqlString: UPDATE [Feature] SET ChocolateBar_id = ? WHERE ID = ?
+DEBUG [2011-05-21 23:48:08,867] - binding '1' to parameter: 0
+DEBUG [2011-05-21 23:48:08,867] - binding '4' to parameter: 1
+DEBUG [2011-05-21 23:48:08,867] - UPDATE [Feature] SET ChocolateBar_id = @p0 WHERE ID = @p1;@p0 = 1 [Type: Int32 (0)], @p1 = 4 [Type: Int32 (0)]
+DEBUG [2011-05-21 23:48:08,868] - Enlist Command
+DEBUG [2011-05-21 23:48:08,868] - ExecuteNonQuery took 0 ms
+DEBUG [2011-05-21 23:48:08,869] - reusing command UPDATE [Feature] SET ChocolateBar_id = @p0 WHERE ID = @p1
+DEBUG [2011-05-21 23:48:08,869] - binding '1' to parameter: 0
+DEBUG [2011-05-21 23:48:08,869] - binding '5' to parameter: 1
+DEBUG [2011-05-21 23:48:08,869] - UPDATE [Feature] SET ChocolateBar_id = @p0 WHERE ID = @p1;@p0 = 1 [Type: Int32 (0)], @p1 = 5 [Type: Int32 (0)]
+DEBUG [2011-05-21 23:48:08,870] - Enlist Command
+DEBUG [2011-05-21 23:48:08,870] - ExecuteNonQuery took 0 ms
+DEBUG [2011-05-21 23:48:08,870] - done inserting rows: 2 inserted
+DEBUG [2011-05-21 23:48:08,872] - ExecuteBatch for 1 statements took 0 ms
+DEBUG [2011-05-21 23:48:08,872] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:48:08,872] - registering flush end
+DEBUG [2011-05-21 23:48:08,873] - post flush
+DEBUG [2011-05-21 23:48:08,875] - before transaction completion
+DEBUG [2011-05-21 23:48:08,875] - IDbTransaction Committed
+DEBUG [2011-05-21 23:48:08,876] - transaction completion
+DEBUG [2011-05-21 23:48:08,876] - aggressively releasing database connection
+DEBUG [2011-05-21 23:48:08,876] - Closing connection
+DEBUG [2011-05-21 23:48:08,878] - IDbTransaction disposed.
+DEBUG [2011-05-21 23:48:09,925] - [session-id=6fbe291f-eb36-4bc7-b7a8-0bc0e74b0e87] opened session at timestamp: 634416184899, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:48:09,927] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar])
+DEBUG [2011-05-21 23:48:09,927] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar])
+DEBUG [2011-05-21 23:48:09,927] - find: NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.ChocolateBar]
+DEBUG [2011-05-21 23:48:09,927] - named parameters: {}
+DEBUG [2011-05-21 23:48:09,927] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:09,927] - Building an IDbCommand object for the SqlString: select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+ INFO [2011-05-21 23:48:09,927] - select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+DEBUG [2011-05-21 23:48:09,927] - select chocolateb0_.ID as ID0_, chocolateb0_.Name as Name0_, chocolateb0_.ChocolatierID as Chocolat3_0_ from [ChocolateBar] chocolateb0_
+DEBUG [2011-05-21 23:48:09,928] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:48:09,928] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:48:09,928] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:48:09,928] - processing result set
+DEBUG [2011-05-21 23:48:09,928] - result set row: 0
+DEBUG [2011-05-21 23:48:09,929] - returning '1' as column: ID0_
+DEBUG [2011-05-21 23:48:09,929] - result row: EntityKey[nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:48:09,929] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:48:09,929] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:48:09,929] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:48:09,929] - DataReader was closed after 0 ms
+DEBUG [2011-05-21 23:48:09,929] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:48:09,929] - aggressively releasing database connection
+DEBUG [2011-05-21 23:48:09,929] - Closing connection
+DEBUG [2011-05-21 23:48:09,929] - total objects hydrated: 0
+DEBUG [2011-05-21 23:48:09,929] - initializing non-lazy collections
+DEBUG [2011-05-21 23:48:09,929] - after autocommit
+DEBUG [2011-05-21 23:48:09,929] - transaction completion
+DEBUG [2011-05-21 23:48:09,929] - aggressively releasing database connection
+DEBUG [2011-05-21 23:48:14,319] - [session-id=47661135-acd4-4349-9377-7234cbe0694d] opened session at timestamp: 634416184943, for session factory: [/50950eb6050e4af8a1921bdda7c041cd]
+DEBUG [2011-05-21 23:48:14,320] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier])
+DEBUG [2011-05-21 23:48:14,320] - located HQL query plan in cache (NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier])
+DEBUG [2011-05-21 23:48:14,320] - find: NHibernate.Linq.NhQueryable`1[nhibernate_demo.Models.Chocolatier]
+DEBUG [2011-05-21 23:48:14,320] - named parameters: {}
+DEBUG [2011-05-21 23:48:14,320] - Opened new IDbCommand, open IDbCommands: 1
+DEBUG [2011-05-21 23:48:14,320] - Building an IDbCommand object for the SqlString: select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+ INFO [2011-05-21 23:48:14,320] - select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+DEBUG [2011-05-21 23:48:14,320] - select chocolatie0_.ID as ID1_, chocolatie0_.Name as Name1_ from [Chocolatier] chocolatie0_
+DEBUG [2011-05-21 23:48:14,320] - Obtaining IDbConnection from Driver
+DEBUG [2011-05-21 23:48:14,321] - ExecuteReader took 0 ms
+DEBUG [2011-05-21 23:48:14,321] - Opened IDataReader, open IDataReaders: 1
+DEBUG [2011-05-21 23:48:14,321] - processing result set
+DEBUG [2011-05-21 23:48:14,321] - result set row: 0
+DEBUG [2011-05-21 23:48:14,321] - returning '1' as column: ID1_
+DEBUG [2011-05-21 23:48:14,321] - result row: EntityKey[nhibernate_demo.Models.Chocolatier#1]
+DEBUG [2011-05-21 23:48:14,321] - done processing result set (1 rows)
+DEBUG [2011-05-21 23:48:14,321] - running NHybridDataReader.Dispose()
+DEBUG [2011-05-21 23:48:14,321] - Closed IDataReader, open IDataReaders :0
+DEBUG [2011-05-21 23:48:14,321] - DataReader was closed after 0 ms
+DEBUG [2011-05-21 23:48:14,321] - Closed IDbCommand, open IDbCommands: 0
+DEBUG [2011-05-21 23:48:14,321] - aggressively releasing database connection
+DEBUG [2011-05-21 23:48:14,321] - Closing connection
+DEBUG [2011-05-21 23:48:14,321] - total objects hydrated: 0
+DEBUG [2011-05-21 23:48:14,321] - initializing non-lazy collections
+DEBUG [2011-05-21 23:48:14,321] - after autocommit
+DEBUG [2011-05-21 23:48:14,321] - transaction completion
+DEBUG [2011-05-21 23:48:14,321] - aggressively releasing database connection
+DEBUG [2011-05-21 23:48:14,321] - loading entity: [nhibernate_demo.Models.ChocolateBar#1]
+DEBUG [2011-05-21 23:48:14,321] - entity found in session cache
+DEBUG [2011-05-21 23:48:14,322] - after autocommit
+DEBUG [2011-05-21 23:48:14,322] - transaction completion
+DEBUG [2011-05-21 23:48:14,322] - aggressively releasing database connection
