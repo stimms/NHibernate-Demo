@@ -9,44 +9,36 @@ using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
-    public class ChocolatierController : Controller
+    public class FarmerController : Controller
     {
-        //
-        // GET: /Chocolatier/
 
         public ActionResult Index()
         {
-            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
-            return View(repository.GetChocolatiers());
+            var repository = MvcApplication.container.Resolve<IFarmerRepository>();
+            return View(repository.GetFarmers());
         }
 
-        //
-        // GET: /Chocolatier/Details/5
 
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        //
-        // GET: /Chocolatier/Create
 
         public ActionResult Create()
         {
             return View();
         } 
 
-        //
-        // POST: /Chocolatier/Create
 
         [HttpPost]
-        public ActionResult Create(Chocolatier chocolatier)
+        public ActionResult Create(Farmer farmer)
         {
             try
             {
 
-                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
-                repository.Save(chocolatier);
+                var repository = MvcApplication.container.Resolve<IFarmerRepository>();
+                repository.Save(farmer);
                 return RedirectToAction("Index");
             }
             catch
@@ -55,26 +47,20 @@ namespace nhibernate_demo.Controllers
             }
         }
         
-        //
-        // GET: /Chocolatier/Edit/5
- 
         public ActionResult Edit(int id)
         {
-            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
+            var repository = MvcApplication.container.Resolve<IFarmerRepository>();
 
             return View(repository.GetByID(id));
         }
 
-        //
-        // POST: /Chocolatier/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(Chocolatier chocolatier)
+        public ActionResult Edit(Farmer farmer)
         {
             try
             {
-                var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
-                repository.Save(chocolatier);
+                var repository = MvcApplication.container.Resolve<IFarmerRepository>();
+                repository.Save(farmer);
                 return RedirectToAction("Index");
             }
             catch
@@ -83,12 +69,10 @@ namespace nhibernate_demo.Controllers
             }
         }
 
-        //
-        // GET: /Chocolatier/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
-            var repository = MvcApplication.container.Resolve<IChocolatierRepository>();
+            var repository = MvcApplication.container.Resolve<IFarmerRepository>();
             repository.Delete(id);
             return RedirectToAction("Index");
         }

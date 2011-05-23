@@ -7,9 +7,9 @@ using nhibernate_demo.Models;
 
 namespace nhibernate_demo.Maps
 {
-    public class ChocolatierMap : ClassMap<Chocolatier>
+    public class FarmerMap : ClassMap<Farmer>
     {
-        public ChocolatierMap()
+        public FarmerMap()
         {
             Id(x => x.ID);
 

@@ -3,35 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using nhibernate_demo.Models;
-using NHibernate.Linq;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace nhibernate_demo.Repositories
 {
-    public class ChocolateBarRepository : BaseRepository, IChocolateBarRepository
+    public class FarmerRepository : BaseRepository, IFarmerRepository
     {
 
-        public ChocolateBarRepository(ISession session) : base(session) { }
+        public FarmerRepository(ISession session) : base(session) { }
 
-        public IQueryable<ChocolateBar> GetChocolateBars()
+        public IQueryable<Farmer> GetFarmers()
         {
-            return _session.Query<ChocolateBar>();
-
+           return _session.Query<Farmer>();
         }
 
-        public ChocolateBar GetByID(int id)
+        public Farmer GetByID(int id)
         {
-            return _session.Load<ChocolateBar>(id);
+            return _session.Load<Farmer>(id);
         }
 
-        public void Save(ChocolateBar chocolateBar, int chocolatierID)
+        public void Delete(int id)
         {
             using (var transaction = _session.BeginTransaction())
             {
                 try
                 {
-                    chocolateBar.Chocolatier = _session.Load<Chocolatier>(chocolatierID);
-                    _session.Merge(chocolateBar);
+                    _session.Delete(_session.Load<Farmer>(id));
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    if (transaction.IsActive)
+                    {
+                        transaction.Rollback();
+                    }
+                    throw ex;
+                }
+            }
+        }
+
+        public void Save(Farmer farmer)
+        {
+            using (var transaction = _session.BeginTransaction())
+            {
+                try
+                {
+                    _session.SaveOrUpdate(farmer);
                     transaction.Commit();
                 }
                 catch (Exception ex)
@@ -44,27 +62,5 @@ namespace nhibernate_demo.Repositories
 
             }
         }
-
-        public void Delete(int chocolateBarID)
-        {
-            using (var transaction = _session.BeginTransaction())
-            {
-                try
-                {
-                    _session.Delete(_session.Load<ChocolateBar>(chocolateBarID));
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    if (transaction.IsActive)
-                    {
-                        transaction.Rollback();
-                    }
-                }
-
-            }
-        }
-
-
     }
 }

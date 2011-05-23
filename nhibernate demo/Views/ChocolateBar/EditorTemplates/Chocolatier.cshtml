@@ -1,6 +1,0 @@
-﻿<select name="chocolatierID">
-@foreach (nhibernate_demo.Models.Chocolatier chocolatier in (IEnumerable<nhibernate_demo.Models.Chocolatier>)ViewData["Chocolatiers"])
-{
-    <option value="@chocolatier.ID">@chocolatier.Name</option>
-}
-</select>

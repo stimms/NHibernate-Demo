@@ -1,10 +1,10 @@
-﻿@model IQueryable<nhibernate_demo.Models.ChocolateBar>
+﻿@model IQueryable<nhibernate_demo.Models.Grain>
 
 @{
-    ViewBag.Title = "Chocolate Bars";
+    ViewBag.Title = "Grains";
 }
 
-<h2>Chocolate Bars</h2>
+<h2>Grains</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,7 +19,7 @@
             Features
         </th>
         <th>
-            Chocolatier
+            Farmer
         </th>
         <th></th>
     </tr>
@@ -39,9 +39,9 @@
             </ul>
         </td>
         <td>
-            @if (item.Chocolatier != null)
+            @if (item.Farmer != null)
             {
-                @item.Chocolatier.Name
+                @item.Farmer.Name
             }
         </td>
         <td>

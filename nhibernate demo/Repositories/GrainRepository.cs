@@ -3,53 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using nhibernate_demo.Models;
-using NHibernate;
 using NHibernate.Linq;
+using NHibernate;
 
 namespace nhibernate_demo.Repositories
 {
-    public class ChocolatierRepository : BaseRepository, IChocolatierRepository
+    public class GrainRepository : BaseRepository, IGrainRepository
     {
 
-        public ChocolatierRepository(ISession session) : base(session) { }
+        public GrainRepository(ISession session) : base(session) { }
 
-        public IQueryable<Chocolatier> GetChocolatiers()
+        public IQueryable<Grain> GetGrains()
         {
-           return _session.Query<Chocolatier>();
+            return _session.Query<Grain>();
+
         }
 
-        public Chocolatier GetByID(int id)
+        public Grain GetByID(int id)
         {
-            return _session.Load<Chocolatier>(id);
+            return _session.Load<Grain>(id);
         }
 
-        public void Delete(int id)
+        public void Save(Grain grain, int farmerID)
         {
             using (var transaction = _session.BeginTransaction())
             {
                 try
                 {
-                    _session.Delete(_session.Load<Chocolatier>(id));
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    if (transaction.IsActive)
-                    {
-                        transaction.Rollback();
-                    }
-                    throw ex;
-                }
-            }
-        }
-
-        public void Save(Chocolatier chocolatier)
-        {
-            using (var transaction = _session.BeginTransaction())
-            {
-                try
-                {
-                    _session.SaveOrUpdate(chocolatier);
+                    grain.Farmer = _session.Load<Farmer>(farmerID);
+                    _session.Merge(grain);
                     transaction.Commit();
                 }
                 catch (Exception ex)
@@ -62,5 +44,27 @@ namespace nhibernate_demo.Repositories
 
             }
         }
+
+        public void Delete(int grainID)
+        {
+            using (var transaction = _session.BeginTransaction())
+            {
+                try
+                {
+                    _session.Delete(_session.Load<Grain>(grainID));
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    if (transaction.IsActive)
+                    {
+                        transaction.Rollback();
+                    }
+                }
+
+            }
+        }
+
+
     }
 }

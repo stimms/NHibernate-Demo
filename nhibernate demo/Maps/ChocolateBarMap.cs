@@ -7,15 +7,15 @@ using nhibernate_demo.Models;
 
 namespace nhibernate_demo.Maps
 {
-    public class ChocolateBarMap : ClassMap<ChocolateBar>
+    public class GrainMap : ClassMap<Grain>
     {
-        public ChocolateBarMap()
+        public GrainMap()
         {
             Id(x => x.ID);
 
             Map(x => x.Name);
 
-            References(x => x.Chocolatier).Column("ChocolatierID");
+            References(x => x.Farmer).Column("FarmerID");
 
             HasMany(x => x.Features);
         }

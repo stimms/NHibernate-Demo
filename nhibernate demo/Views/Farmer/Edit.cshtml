@@ -1,4 +1,4 @@
-﻿@model nhibernate_demo.Models.Chocolatier
+﻿@model nhibernate_demo.Models.Farmer
 
 @{
     ViewBag.Title = "Edit";
@@ -12,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Chocolatier</legend>
+        <legend>Farmer</legend>
 
         @Html.HiddenFor(model => model.ID)
 
