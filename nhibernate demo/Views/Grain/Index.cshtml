@@ -1,55 +1,41 @@
-﻿@model IQueryable<nhibernate_demo.Models.Grain>
+﻿@model IEnumerable<nhibernate_demo.Models.Grain>
 
 @{
     ViewBag.Title = "Grains";
 }
+
+<script type="text/javascript">
+    var model = @Html.Raw(nhibernate_demo.JsonSerialization.IEnumerableExtensions.ToJson(Model))
+    $(document).ready(function () {
+       refreshTable();
+    });
+
+    function deleteItem(id)
+    {
+        
+        $.post("/Grain/DeleteAjax", { id: id}, function()
+        {
+            refreshTable();
+        });
+    }
+
+    function refreshTable()
+    {
+        $.get("/Grain/IndexJson", function(json){
+            model = json;
+            var text = new EJS({ url: "@Url.Content("~/templates/Grain/Index.ejs")", cache: true}).render({data: model});
+            $("#indexTable").html(text);
+        });
+    }
+</script>
 
 <h2>Grains</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>
-        
-        <th>
-            Name
-        </th>
-        <th>
-            Features
-        </th>
-        <th>
-            Farmer
-        </th>
-        <th></th>
-    </tr>
+<div id="indexTable">
 
-@foreach (var item in Model) {
-    <tr>
-        
-        <td>
-            @item.Name
-        </td>
-        <td>
-            <ul>
-            @foreach (var feature in item.Features)
-            {
-                <li>@feature.Name</li>    
-            }
-            </ul>
-        </td>
-        <td>
-            @if (item.Farmer != null)
-            {
-                @item.Farmer.Name
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+</div>
 

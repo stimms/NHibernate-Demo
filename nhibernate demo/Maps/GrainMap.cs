@@ -17,7 +17,7 @@ namespace nhibernate_demo.Maps
 
             References(x => x.Farmer).Column("FarmerID");
 
-            HasMany(x => x.Features);
+            HasManyToMany(x => x.Features);
         }
     }
 }

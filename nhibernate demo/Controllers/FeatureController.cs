@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace nhibernate_demo.Controllers
 {
-    public class FeatureController : Controller
+    public partial class FeatureController : Controller
     {
         //
         // GET: /Feature/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
@@ -19,7 +19,7 @@ namespace nhibernate_demo.Controllers
         //
         // GET: /Feature/Details/5
 
-        public ActionResult Details(int id)
+        public virtual ActionResult Details(int id)
         {
             return View();
         }
@@ -27,7 +27,7 @@ namespace nhibernate_demo.Controllers
         //
         // GET: /Feature/Create
 
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             return View();
         } 
@@ -36,7 +36,7 @@ namespace nhibernate_demo.Controllers
         // POST: /Feature/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public virtual ActionResult Create(FormCollection collection)
         {
             try
             {
@@ -52,8 +52,8 @@ namespace nhibernate_demo.Controllers
         
         //
         // GET: /Feature/Edit/5
- 
-        public ActionResult Edit(int id)
+
+        public virtual ActionResult Edit(int id)
         {
             return View();
         }
@@ -62,7 +62,7 @@ namespace nhibernate_demo.Controllers
         // POST: /Feature/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public virtual ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
@@ -78,8 +78,8 @@ namespace nhibernate_demo.Controllers
 
         //
         // GET: /Feature/Delete/5
- 
-        public ActionResult Delete(int id)
+
+        public virtual ActionResult Delete(int id)
         {
             return View();
         }
@@ -88,7 +88,7 @@ namespace nhibernate_demo.Controllers
         // POST: /Feature/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public virtual ActionResult Delete(int id, FormCollection collection)
         {
             try
             {

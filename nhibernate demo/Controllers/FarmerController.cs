@@ -9,30 +9,30 @@ using Autofac;
 
 namespace nhibernate_demo.Controllers
 {
-    public class FarmerController : Controller
+    public partial class FarmerController : Controller
     {
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var repository = MvcApplication.container.Resolve<IFarmerRepository>();
             return View(repository.GetFarmers());
         }
 
 
-        public ActionResult Details(int id)
+        public virtual ActionResult Details(int id)
         {
             return View();
         }
 
 
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             return View();
         } 
 
 
         [HttpPost]
-        public ActionResult Create(Farmer farmer)
+        public virtual ActionResult Create(Farmer farmer)
         {
             try
             {
@@ -46,16 +46,22 @@ namespace nhibernate_demo.Controllers
                 return View();
             }
         }
-        
-        public ActionResult Edit(int id)
+
+        public virtual ActionResult Edit(int id)
         {
             var repository = MvcApplication.container.Resolve<IFarmerRepository>();
 
             return View(repository.GetByID(id));
         }
 
+        public virtual ActionResult GetBiggestFarmer(string pantColor)
+        {
+
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Edit(Farmer farmer)
+        public virtual ActionResult Edit(Farmer farmer)
         {
             try
             {
@@ -70,7 +76,7 @@ namespace nhibernate_demo.Controllers
         }
 
 
-        public ActionResult Delete(int id)
+        public virtual ActionResult Delete(int id)
         {
             var repository = MvcApplication.container.Resolve<IFarmerRepository>();
             repository.Delete(id);

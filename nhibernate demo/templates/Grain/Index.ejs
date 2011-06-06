@@ -1,0 +1,40 @@
+﻿<table>
+    <tr>
+        
+        <th>
+            Name
+        </th>
+        <th>
+            Features
+        </th>
+        <th>
+            Farmer
+        </th>
+        <th></th>
+    </tr>
+
+<%for(var i=0; i< data.length; i++) {%>
+    <tr>
+        
+        <td>
+            <%=data[i].Name%>
+        </td>
+        <td>
+            <ul>
+            <%for(var j = 0; j< data[i].Features.length; j++)
+            {%>
+                <li><%=data[i].Features[j].Name%></li>    
+            <%}%>
+            </ul>
+        </td>
+        <td>
+                <%=data[i].Farmer?data[i].Farmer.Name:""%>
+        </td>
+        <td>
+            <a href="Grain/Edit/<%= data[i].ID%>">Edit</a>|
+			<a href="#" onclick="deleteItem(<%=data[i].ID%>)">Delete</a>
+        </td>
+    </tr>
+<%}%>
+
+</table>

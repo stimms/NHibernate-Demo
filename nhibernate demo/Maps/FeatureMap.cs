@@ -14,6 +14,8 @@ namespace nhibernate_demo.Maps
             Id(x => x.ID);
 
             Map(x => x.Name);
+
+            HasManyToMany(x => x.Grains);
         }
     }
 }

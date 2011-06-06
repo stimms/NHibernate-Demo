@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace nhibernate_demo.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
