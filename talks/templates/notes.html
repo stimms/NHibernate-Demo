@@ -1,0 +1,243 @@
+<html>
+<h1>Templates talk</h1>
+<h2>What is a template?</h2>
+A set of rules which, when combined with data result in a customized file or set of files
+They speed up de8velopment by allowing you abstract away repetative code or similarities between files
+In that way they are much like classes, aspects and even procedures
+
+<h2>Visual studio templates</h2>
+You probably use templates every day without even thinking about it
+
+<h3>Project templates</h3>
+
+In large organizations they allow you to create a well known structure which allows others to quickly pick up on new projects or get a jumpstart on creating new projects
+browse to set your template location tools -> options -> project and solution
+
+<p>Unfortunatly these templates don't contain your binary files. This can be solved easily using nuget.exe. Just drop into a command line and run</p>
+<br/>
+<i>   nuget.exe install &lt;path to packages.config&gt; -o &lt;directory into which to install&gt; </i>
+<br/>   
+The variable replacements we can perform at this stage are pretty rudimentry. [Show slide]  So what can we do to improve that? We can actually create our own UI for a template
+
+<ol>
+<li>Open up the template and navigate to Content/Site.css</li>
+<li>Add 
+<pre>
+body
+{
+    background-color: $backgroundcolor$;
+    font-size: 75%;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: $textcolor$;
+}
+
+#main
+{
+    padding: 30px 30px 15px 30px;
+    background-color: $maincolor$;
+    margin-bottom: 30px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+</pre>
+</li>
+<li>
+Just before the closing tag:
+<pre>
+  &lt;WizardExtension&gt;
+  	&lt;Assembly&gt;GrainWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=532eb4fb84f0bf10&lt;/Assembly&gt;
+  	&lt;FullClassName&gt;GrainWizard.GrainWizard&lt;/FullClassName&gt;
+  &lt;/WizardExtension&gt;
+</pre>
+</li>
+<li>
+Open up the .vstemplate file and explain the structure
+<ul>  
+   <li>OpenInEditor="true" can be added to any project item in the template to bring up a readme or some file you want people to see right away</li>
+   <li>OpenInWebBrowser</li>
+   <li>OpenInHelpBrowser</li> 
+</ul>  
+</li>
+<li>
+Save and recompact the template
+</li>
+<li>
+Open up the grain wizard
+</li>
+<li>
+Point out the GrainWizard class implements IWizard.
+</li>
+<li>
+Explain each point in the file
+</li>
+<li>
+Show the form we should be seeing during the install
+</li>
+<li>
+Talk a bit about the real power which is in ShouldAddProjectItem for dynamically including files
+</li>
+<li>
+Compile and talk about signing and having to register in the GAC
+<br/>
+gac util (must be run as administrator)
+<br/>
+<i>  install: gacutil -i &lt;binary&gt;</i>
+<br/>
+<i>  list: gacutil -l &gt; somefile</i>
+
+</li>
+</ol>
+
+<br/>
+
+
+<h3>Item templates</h3>
+
+<p>Very much like project templates</p>
+
+<p>Limit the project types in which the template can be used with ProjectSubType.</p>
+
+<h2>T4</h2>
+<p>install T4MVC</p>
+<p>all the actions and everything are in the MVC namespace</p>
+
+<p>install T4AppSettings</p>
+go over how things work inside the template and alter a method to do something different. For instance add a convention that if the setting ends with count it will return an int
+
+
+<h2>Javascript</h2>
+<p>install EJS from nuget</p>
+
+<ol>
+<li> Add a new folder called templates</li>
+<li> Add a new folder called Grain</li>
+<li> Add a template file called index.ejs</li>
+<li> Add "hi" to it</li>
+<li> Include the EJS package in the 
+shared/_layout.cshtml
+<pre>
+&lt;script src="@Url.Content("~/Scripts/ejs.min.js")" type="text/javascript"&gt;&lt;/script&gt;
+
+var model = "";
+    $(document).ready(function () {
+        var text = new EJS({ url: "@Url.Content("~/templates/Grain/Index.ejs")", cache: false}).render(model);
+        $("#indexTable").html(text);
+    });
+</pre>    
+</li>
+<li>
+ Add the div to the edit page
+<pre>
+ &lt;div id="indexTable"&gt;
+
+
+	&lt;/div&gt;
+	</pre>
+</li>
+<li>Add the javascript at the bottom of the page  
+<pre>
+var model = "";
+    $(document).ready(function () {
+        var text = new EJS({ url: "@Url.Content("~/templates/Grain/Index.ejs")", cache: false}).render(model);
+        $("#indexTable").html(text);
+    });
+</pre>    
+<li>Render the model to the page as javascript
+ <pre>
+ var model = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))
+ </pre>
+ </li>
+<li> Add the table to ejs
+ <pre>
+ &lt;table&gt;
+    &lt;tr&gt;
+        
+        &lt;th&gt;
+            Name
+        &lt;/th&gt;
+        &lt;th&gt;
+            Features
+        &lt;/th&gt;
+        &lt;th&gt;
+            Farmer
+        &lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+
+&lt;%for(var i=0; i&lt; data.length; i++) {%&gt;
+    &lt;tr&gt;
+        
+        &lt;td&gt;
+            &lt;%=data[i].Name%&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;ul&gt;
+            &lt;%for(var j = 0; j&lt; data[i].Features.length; j++)
+            {%&gt;
+                &lt;li&gt;&lt;%=data[i].Features[j].Name%&gt;&lt;/li&gt;    
+            &lt;%}%&gt;
+            &lt;/ul&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+                &lt;%=data[i].Farmer?data[i].Farmer.Name:""%&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;a href="Grain/Edit/&lt;%= data[i].ID%&gt;"&gt;Edit&lt;/a&gt;|
+			&lt;a href="Grain/Delete/&lt;%= data[i].ID%&gt;"&gt;Delete&lt;/a&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;%}%&gt;
+
+&lt;/table&gt;
+<pre>
+</li>
+<li>Add IndexJson method to the controller
+
+<pre>
+public virtual ActionResult IndexJson()
+        {
+            var repo = MvcApplication.container.Resolve&lt;IGrainRepository&gt;();
+            return Json(repo.GetGrains());
+        }
+</pre>
+</li>
+<li> Add delete Ajax to the controller
+<pre>
+public virtual ActionResult DeleteAjax(int id)
+        {
+            var repo = MvcApplication.container.Resolve&lt;IGrainRepository&gt;();
+            repo.Delete(id);
+            return new EmptyResult();
+        }
+</pre>
+</li>
+<li>
+Rewire the delete action to be ajaxy
+<pre>
+function deleteItem(id)
+    {
+        
+        $.post("/Grain/DeleteAjax", { id: id}, function()
+        {
+            refreshTable();
+        });
+    }
+
+    function refreshTable()
+    {
+        $.get("/Grain/IndexJson", function(json){
+            model = json;
+            var text = new EJS({ url: "@Url.Content("~/templates/Grain/Index.ejs")", cache: true}).render({data: model});
+            $("#indexTable").html(text);
+        });
+    }
+</pre>
+</li>
+<li>
+    In the template update the delete to call the ajax function
+<pre>    
+    &lt;a href="#" onclick="deleteItem(&lt;%=data[i].ID%&gt;)"&gt;Delete&lt;/a&gt;
+    </pre>
+    </li>
+    </html>
