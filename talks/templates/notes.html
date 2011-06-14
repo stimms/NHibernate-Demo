@@ -2,7 +2,7 @@
 <h1>Templates talk</h1>
 <h2>What is a template?</h2>
 A set of rules which, when combined with data result in a customized file or set of files
-They speed up de8velopment by allowing you abstract away repetative code or similarities between files
+They speed up development by allowing you abstract away repetative code or similarities between files
 In that way they are much like classes, aspects and even procedures
 
 <h2>Visual studio templates</h2>
@@ -13,13 +13,33 @@ You probably use templates every day without even thinking about it
 In large organizations they allow you to create a well known structure which allows others to quickly pick up on new projects or get a jumpstart on creating new projects
 browse to set your template location tools -> options -> project and solution
 
-<p>Unfortunatly these templates don't contain your binary files. This can be solved easily using nuget.exe. Just drop into a command line and run</p>
-<br/>
-<i>   nuget.exe install &lt;path to packages.config&gt; -o &lt;directory into which to install&gt; </i>
+<ol>
+<li>Click on file Export File</li>
+<li>Select project template, explain the options</li>
+<li>Create a new project using the template</li>
+<li>Point out the missing library files</li>
+<li>Solve it with nuget
+<pre>
+nuget.exe install packages.config -source c:\temp\localNuget -o packages
+</pre>
+</li>
+</ol>
+
+Now let's look at the template itself. It is basically a zipped up visual studio project. Point out the .vstemplate file and explain the contents a bit. 
+
 <br/>   
-The variable replacements we can perform at this stage are pretty rudimentry. [Show slide]  So what can we do to improve that? We can actually create our own UI for a template
+
 
 <ol>
+<li>
+Open up the .vstemplate file and explain the structure
+<ul>  
+   <li>OpenInEditor="true" can be added to any project item in the template to bring up a readme or some file you want people to see right away</li>
+   <li>OpenInWebBrowser</li>
+   <li>OpenInHelpBrowser</li> 
+</ul>  
+</li>
+<li>The variable replacements we can perform at this stage are pretty rudimentry. [Show slide]  So what can we do to improve that? We can actually create our own UI for a template</li>
 <li>Open up the template and navigate to Content/Site.css</li>
 <li>Add 
 <pre>
@@ -51,16 +71,9 @@ Just before the closing tag:
   &lt;/WizardExtension&gt;
 </pre>
 </li>
+
 <li>
-Open up the .vstemplate file and explain the structure
-<ul>  
-   <li>OpenInEditor="true" can be added to any project item in the template to bring up a readme or some file you want people to see right away</li>
-   <li>OpenInWebBrowser</li>
-   <li>OpenInHelpBrowser</li> 
-</ul>  
-</li>
-<li>
-Save and recompact the template
+Save and recompact the template <b>REMEMBER TO ZIP FROM INSIDE THE FOLDER</b>
 </li>
 <li>
 Open up the grain wizard
